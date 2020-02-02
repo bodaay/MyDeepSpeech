@@ -1,0 +1,379 @@
+
+       USAGE: ./DeepSpeech/DeepSpeech.py [flags]
+flags:
+
+absl.app:
+  -?,--[no]help: show this help
+    (default: 'false')
+  --[no]helpfull: show full help
+    (default: 'false')
+  --[no]helpshort: show this help
+    (default: 'false')
+  --[no]helpxml: like --helpfull, but generates XML output
+    (default: 'false')
+  --[no]only_check_args: Set to true to validate args and exit.
+    (default: 'false')
+  --[no]pdb_post_mortem: Set to true to handle uncaught exceptions with PDB post
+    mortem.
+    (default: 'false')
+  --profile_file: Dump profile information to a file (for python -m pstats).
+    Implies --run_with_profiling.
+  --[no]run_with_pdb: Set to true for PDB debug mode
+    (default: 'false')
+  --[no]run_with_profiling: Set to true for profiling the script. Execution will
+    be slower, and the output format might change over time.
+    (default: 'false')
+  --[no]use_cprofile_for_profiling: Use cProfile instead of the profile module
+    for profiling. This has no effect unless --run_with_profiling is set.
+    (default: 'true')
+
+absl.logging:
+  --[no]alsologtostderr: also log to stderr?
+    (default: 'false')
+  --log_dir: directory to write logfiles into
+    (default: '')
+  --[no]logtostderr: Should only log to stderr?
+    (default: 'false')
+  --[no]showprefixforinfo: If False, do not prepend prefix to info messages when
+    it's logged to stderr, --verbosity is set to INFO level, and python logging
+    is used.
+    (default: 'true')
+  --stderrthreshold: log messages at this level, or more severe, to stderr in
+    addition to the logfile.  Possible values are 'debug', 'info', 'warning',
+    'error', and 'fatal'.  Obsoletes --alsologtostderr. Using --alsologtostderr
+    cancels the effect of this flag. Please also note that this flag is subject
+    to --verbosity and requires logfile not be stderr.
+    (default: 'fatal')
+  -v,--verbosity: Logging verbosity level. Messages logged at this level or
+    lower will be included. Set to 1 for debug logging. If the flag was not set
+    or supplied, the value will be changed from the default of -1 (warning) to 0
+    (info) after flags are parsed.
+    (default: '-1')
+    (an integer)
+
+absl.testing.absltest:
+  --test_random_seed: Random seed for testing. Some test frameworks may change
+    the default value of this flag between runs, so it is not appropriate for
+    seeding probabilistic tests.
+    (default: '301')
+    (an integer)
+  --test_randomize_ordering_seed: If positive, use this as a seed to randomize
+    the execution order for test cases. If "random", pick a random seed to use.
+    If 0 or not set, do not randomize test case execution order. This flag also
+    overrides the TEST_RANDOMIZE_ORDERING_SEED environment variable.
+    (default: '')
+  --test_srcdir: Root of directory tree where source files live
+    (default: '')
+  --test_tmpdir: Directory for temporary testing files
+    (default: '/tmp/absl_testing')
+  --xml_output_file: File to store XML test results
+    (default: '')
+
+tensorflow.python.ops.parallel_for.pfor:
+  --[no]op_conversion_fallback_to_while_loop: If true, falls back to using a
+    while loop for ops for which a converter is not defined.
+    (default: 'false')
+
+util.flags:
+  --alphabet_config_path: path to the configuration file specifying the alphabet
+    used by the network. See the comment in data/alphabet.txt for a description
+    of the format.
+    (default: 'data/alphabet.txt')
+  --audio_sample_rate: sample rate value expected by model
+    (default: '16000')
+    (an integer)
+  --[no]augmentation_freq_and_time_masking: whether to use frequency and time
+    masking augmentation
+    (default: 'false')
+  --augmentation_freq_and_time_masking_freq_mask_range: max range of masks in
+    the frequency domain when performing freqtime-mask augmentation
+    (default: '5')
+    (an integer)
+  --augmentation_freq_and_time_masking_number_freq_masks: number of masks in the
+    frequency domain when performing freqtime-mask augmentation
+    (default: '3')
+    (an integer)
+  --augmentation_freq_and_time_masking_number_time_masks: number of masks in the
+    time domain when performing freqtime-mask augmentation
+    (default: '3')
+    (an integer)
+  --augmentation_freq_and_time_masking_time_mask_range: max range of masks in
+    the time domain when performing freqtime-mask augmentation
+    (default: '2')
+    (an integer)
+  --[no]augmentation_pitch_and_tempo_scaling: whether to use spectrogram speed
+    and tempo scaling
+    (default: 'false')
+  --augmentation_pitch_and_tempo_scaling_max_pitch: max value of pitch scaling
+    (default: '1.2')
+    (a number)
+  --augmentation_pitch_and_tempo_scaling_max_tempo: max vlaue of tempo scaling
+    (default: '1.2')
+    (a number)
+  --augmentation_pitch_and_tempo_scaling_min_pitch: min value of pitch scaling
+    (default: '0.95')
+    (a number)
+  --[no]augmentation_sparse_warp: whether to use spectrogram sparse warp. USE OF
+    THIS FLAG IS UNSUPPORTED, enable sparse warp will increase training time
+    drastically, and the paper also mentioned that this is not a major factor to
+    improve accuracy.
+    (default: 'false')
+  --augmentation_sparse_warp_interpolation_order:
+    sparse_warp_interpolation_order
+    (default: '2')
+    (an integer)
+  --augmentation_sparse_warp_num_boundary_points:
+    sparse_warp_num_boundary_points
+    (default: '1')
+    (an integer)
+  --augmentation_sparse_warp_num_control_points: specify number of control
+    points
+    (default: '1')
+    (an integer)
+  --augmentation_sparse_warp_regularization_weight:
+    sparse_warp_regularization_weight
+    (default: '0.0')
+    (a number)
+  --augmentation_sparse_warp_time_warping_para: time_warping_para
+    (default: '20')
+    (an integer)
+  --augmentation_spec_dropout_keeprate: keep rate of dropout augmentation on
+    spectrogram (if 1, no dropout will be performed on spectrogram)
+    (default: '1.0')
+    (a number)
+  --augmentation_speed_up_std: std for speeding-up tempo. If std is 0, this
+    augmentation is not performed
+    (default: '0.0')
+    (a number)
+  --[no]automatic_mixed_precision: whether to allow automatic mixed precision
+    training. USE OF THIS FLAG IS UNSUPPORTED. Checkpoints created with
+    automatic mixed precision training will not be usable without mixed
+    precision.
+    (default: 'false')
+  --beam_width: beam width used in the CTC decoder when building candidate
+    transcriptions
+    (default: '1024')
+    (an integer)
+  --beta1: beta 1 parameter of Adam optimizer
+    (default: '0.9')
+    (a number)
+  --beta2: beta 2 parameter of Adam optimizer
+    (default: '0.999')
+    (a number)
+  --checkpoint_dir: directory in which checkpoints are stored - defaults to
+    directory "deepspeech/checkpoints" within user's data home specified by the
+    XDG Base Directory Specification
+    (default: '')
+  --checkpoint_secs: checkpoint saving interval in seconds
+    (default: '600')
+    (an integer)
+  --cudnn_checkpoint: path to a checkpoint created using --use_cudnn_rnn.
+    Specifying this flag allows one to convert a CuDNN RNN checkpoint to a
+    checkpoint capable of running on a CPU graph.
+    (default: '')
+  --cutoff_prob: only consider characters until this probability mass is
+    reached. 1.0 = disabled.
+    (default: '1.0')
+    (a number)
+  --cutoff_top_n: only process this number of characters sorted by probability
+    mass for each time step. If bigger than alphabet size, disabled.
+    (default: '300')
+    (an integer)
+  --data_aug_features_additive: std of the Gaussian additive noise
+    (default: '0.0')
+    (a number)
+  --data_aug_features_multiplicative: std of normal distribution around 1 for
+    multiplicative noise
+    (default: '0.0')
+    (a number)
+  --dev_batch_size: number of elements in a validation batch
+    (default: '1')
+    (an integer)
+  --dev_files: comma separated list of files specifying the dataset used for
+    validation. Multiple files will get merged. If empty, validation will not be
+    run.
+    (default: '')
+  --dropout_rate: dropout rate for feedforward layers
+    (default: '0.05')
+    (a number)
+  --dropout_rate2: dropout rate for layer 2 - defaults to dropout_rate
+    (default: '-1.0')
+    (a number)
+  --dropout_rate3: dropout rate for layer 3 - defaults to dropout_rate
+    (default: '-1.0')
+    (a number)
+  --dropout_rate4: dropout rate for layer 4 - defaults to 0.0
+    (default: '0.0')
+    (a number)
+  --dropout_rate5: dropout rate for layer 5 - defaults to 0.0
+    (default: '0.0')
+    (a number)
+  --dropout_rate6: dropout rate for layer 6 - defaults to dropout_rate
+    (default: '-1.0')
+    (a number)
+  --[no]early_stop: enable early stopping mechanism over validation dataset. If
+    validation is not being run, early stopping is disabled.
+    (default: 'true')
+  --epochs: how many epochs (complete runs through the train files) to train for
+    (default: '75')
+    (an integer)
+  --epsilon: epsilon parameter of Adam optimizer
+    (default: '1e-08')
+    (a number)
+  --es_mean_th: mean threshold for loss to determine the condition if early
+    stopping is required
+    (default: '0.5')
+    (a number)
+  --es_std_th: standard deviation threshold for loss to determine the condition
+    if early stopping is required
+    (default: '0.5')
+    (a number)
+  --es_steps: number of validations to consider for early stopping. Loss is not
+    stored in the checkpoint so when checkpoint is revived it starts the loss
+    calculation from start at that point
+    (default: '4')
+    (an integer)
+  --export_batch_size: number of elements per batch on the exported graph
+    (default: '1')
+    (an integer)
+  --export_dir: directory in which exported models are stored - if omitted, the
+    model won't get exported
+    (default: '')
+  --export_language: language the model was trained on e.g. "en" or "English".
+    Gets embedded into exported model.
+    (default: '')
+  --export_name: name for the export model
+    (default: 'output_graph')
+  --[no]export_tflite: export a graph ready for TF Lite engine
+    (default: 'false')
+  --[no]export_zip: export a TFLite model and package with LM and info.json
+    (default: 'false')
+  --feature_cache: cache MFCC features to disk to speed up future training runs
+    ont he same data. This flag specifies the path where cached features
+    extracted from --train_files will be saved. If empty, or if online
+    augmentation flags are enabled, caching will be disabled.
+    (default: '')
+  --feature_win_len: feature extraction audio window length in milliseconds
+    (default: '32')
+    (an integer)
+  --feature_win_step: feature extraction window step length in milliseconds
+    (default: '20')
+    (an integer)
+  --inter_op_parallelism_threads: number of inter-op parallelism threads - see
+    tf.ConfigProto for more details. USE OF THIS FLAG IS UNSUPPORTED
+    (default: '0')
+    (an integer)
+  --intra_op_parallelism_threads: number of intra-op parallelism threads - see
+    tf.ConfigProto for more details. USE OF THIS FLAG IS UNSUPPORTED
+    (default: '0')
+    (an integer)
+  --learning_rate: learning rate of Adam optimizer
+    (default: '0.001')
+    (a number)
+  --limit_dev: maximum number of elements to use from validation set- 0 means no
+    limit
+    (default: '0')
+    (an integer)
+  --limit_test: maximum number of elements to use from test set- 0 means no
+    limit
+    (default: '0')
+    (an integer)
+  --limit_train: maximum number of elements to use from train set - 0 means no
+    limit
+    (default: '0')
+    (an integer)
+  --lm: Alias for --lm_binary_path.
+    (default: 'data/lm/lm.binary')
+  --lm_alpha: the alpha hyperparameter of the CTC decoder. Language Model
+    weight.
+    (default: '0.75')
+    (a number)
+  --lm_beta: the beta hyperparameter of the CTC decoder. Word insertion weight.
+    (default: '1.85')
+    (a number)
+  --lm_binary_path: path to the language model binary file created with KenLM
+    (default: 'data/lm/lm.binary')
+  --lm_trie_path: path to the language model trie file created with
+    native_client/generate_trie
+    (default: 'data/lm/trie')
+  --load: "last" for loading most recent epoch checkpoint, "best" for loading
+    best validated checkpoint, "init" for initializing a fresh model, "auto" for
+    trying the other options in order last > best > init
+    (default: 'auto')
+  --log_level: log level for console logs - 0: INFO, 1: WARN, 2: ERROR, 3: FATAL
+    (default: '1')
+    (an integer)
+  --[no]log_placement: whether to log device placement of the operators to the
+    console
+    (default: 'false')
+  --max_to_keep: number of checkpoint files to keep - default value is 5
+    (default: '5')
+    (an integer)
+  --n_hidden: layer width to use when initialising layers
+    (default: '2048')
+    (an integer)
+  --n_steps: how many timesteps to process at once by the export graph, higher
+    values mean more latency
+    (default: '16')
+    (an integer)
+  --one_shot_infer: one-shot inference mode: specify a wav file and the script
+    will load the checkpoint and perform inference on it.
+    (default: '')
+  --random_seed: default random seed that is used to initialize variables
+    (default: '4568')
+    (an integer)
+  --relu_clip: ReLU clipping value for non-recurrent layers
+    (default: '20.0')
+    (a number)
+  --[no]remove_export: whether to remove old exported models
+    (default: 'false')
+  --report_count: number of phrases with lowest WER(best matching) to print out
+    during a WER report
+    (default: '10')
+    (an integer)
+  --[no]show_progressbar: Show progress for training, validation and testing
+    processes. Log level should be > 0.
+    (default: 'true')
+  --summary_dir: target directory for TensorBoard summaries - defaults to
+    directory "deepspeech/summaries" within user's data home specified by the
+    XDG Base Directory Specification
+    (default: '')
+  --test_batch_size: number of elements in a test batch
+    (default: '1')
+    (an integer)
+  --test_files: comma separated list of files specifying the dataset used for
+    testing. Multiple files will get merged. If empty, the model will not be
+    tested.
+    (default: '')
+  --test_output_file: path to a file to save all src/decoded/distance/loss
+    tuples generated during a test epoch
+    (default: '')
+  --train_batch_size: number of elements in a training batch
+    (default: '1')
+    (an integer)
+  --train_files: comma separated list of files specifying the dataset used for
+    training. Multiple files will get merged. If empty, training will not be
+    run.
+    (default: '')
+  --trie: Alias for --lm_trie_path.
+    (default: 'data/lm/trie')
+  --[no]use_allow_growth: use Allow Growth flag which will allocate only
+    required amount of GPU memory and prevent full allocation of available GPU
+    memory
+    (default: 'false')
+  --[no]use_cudnn_rnn: use CuDNN RNN backend for training on GPU. Note that
+    checkpoints created with this flag can only be used with CuDNN RNN, i.e.
+    fine tuning on a CPU device will not work
+    (default: 'false')
+  --[no]utf8: enable UTF-8 mode. When this is used the model outputs UTF-8
+    sequences directly rather than using an alphabet mapping.
+    (default: 'false')
+
+absl.flags:
+  --flagfile: Insert flag definitions from the given file into the command line.
+    (default: '')
+  --undefok: comma-separated list of flag names that it is okay to specify on
+    the command line even if the program does not define a flag with that name.
+    IMPORTANT: flags in this list that have arguments MUST use the --flag=value
+    format.
+    (default: '')

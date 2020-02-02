@@ -1,0 +1,14 @@
+data/
+DeepSpeech/
+deepspeech-0.6.1-models.tar.gz
+audio-0.6.1.tar.gz
+audio/
+deepspeech-0.6.1-models/
+pip-selfcheck.json
+pyvenv.cfg
+bin/
+include/
+lib/
+lib64/
+share/
+
