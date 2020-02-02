@@ -3,6 +3,8 @@ DeepSpeech/
 deepspeech-0.6.1-models.tar.gz
 audio-0.6.1.tar.gz
 audio/
+models/
+checkpoints/
 deepspeech-0.6.1-models/
 pip-selfcheck.json
 pyvenv.cfg
