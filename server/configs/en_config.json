@@ -1,0 +1,24 @@
+{
+  "deepspeech": {
+    "model" :"/data/sample/deepspeech-0.6.1-models/output_graph.pb",
+    "lm": "/data/sample/deepspeech-0.6.1-models/lm.binary",
+    "trie": "/data/sample/deepspeech-0.6.1-models/trie",
+    "features": {
+      "beam_width": 500,
+      "lm_alpha": 0.75,
+      "lm_beta": 1.85
+    }
+  },
+  "server": {
+    "http": {
+      "host": "0.0.0.0",
+      "port": 8080,
+      "request_max_size": 10048576
+    }
+  },
+  "log": {
+    "level": [
+      { "logger": "deepspeech_server", "level": "DEBUG"}
+    ]
+  }
+}
