@@ -1,6 +1,6 @@
 {
   "deepspeech": {
-    "model" :"/data/sample/deepspeech-0.6.1-models/output_graph.pb",
+    "model" :"/data/sample/deepspeech-0.6.1-models/output_graph.pbmm",
     "lm": "/data/sample/deepspeech-0.6.1-models/lm.binary",
     "trie": "/data/sample/deepspeech-0.6.1-models/trie",
     "features": {
