@@ -1,5 +1,15 @@
 sudo apt update
 
+# Install nvidia drivers
+
+sudo ubuntu-drivers autoinstall
+
+# reboot
+
+sudo reboot
+
+
+
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 
 echo "\n" | curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -14,4 +24,17 @@ sudo usermod -aG docker ${USER}
 
 
 # now log out and log in
+
+# Installing nvidia-docker
+
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit nvidia-container-runtime
+sudo systemctl restart docker
+
+# Test it out
+
+docker run --gpus all nvidia/cuda:9.0-base nvidia-smi
 
