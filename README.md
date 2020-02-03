@@ -8,3 +8,6 @@ wget -O DownloadMyScripts.sh https://raw.githubusercontent.com/bodaay/MyDeepSpee
 
 # Run My Scripts:
 /DeepSpeech/DownloadMyScripts.sh
+
+
+# Deepspeech Server from: https://github.com/MainRo/deepspeech-server
