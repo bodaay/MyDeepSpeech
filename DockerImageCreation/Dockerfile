@@ -225,4 +225,8 @@ RUN rm -rf kenlm \
     && make -j 4
 
 # Done
+RUN export LC_ALL=en_US.UTF-8
+RUN export LANG=en_US.UTF-8
+RUN locale-gen en_US.UTF-8
+
 WORKDIR /DeepSpeech
