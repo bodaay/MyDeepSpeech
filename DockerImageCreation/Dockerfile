@@ -2,6 +2,14 @@
 # for compiling libctc_decoder_with_kenlm.so
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 
+# below added by me: Khalefa
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    locale-gen
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
+
+# end of my addition
 
 # >> START Install base software
 
@@ -225,8 +233,6 @@ RUN rm -rf kenlm \
     && make -j 4
 
 # Done
-RUN export LC_ALL=en_US.UTF-8
-RUN export LANG=en_US.UTF-8
-RUN locale-gen en_US.UTF-8
+
 
 WORKDIR /DeepSpeech
