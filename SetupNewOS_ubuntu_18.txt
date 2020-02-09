@@ -2,7 +2,7 @@ sudo apt update
 
 # Install nvidia drivers
 
-sudo ubuntu-drivers autoinstall
+sudo apt-get install ubuntu-drivers-common -y && sudo ubuntu-drivers autoinstall
 
 # reboot
 
