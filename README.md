@@ -11,3 +11,6 @@ wget -O DownloadMyScripts.sh https://raw.githubusercontent.com/bodaay/MyDeepSpee
 
 
 # Deepspeech Server from: https://github.com/MainRo/deepspeech-server
+
+# Convert Any Audio File to 16khz Mono
+ffmpeg -i source.mp3 -acodec pcm_s16le -ac 1 -ar 16000 out.wav
