@@ -6,4 +6,6 @@ sudo apt update
 sudo add-apt-repository ppa:jonathonf/ffmpeg-4
 
 
-sudo apt install ffmpeg libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libavresample-dev libavfilter-dev
+sudo apt install python3-dev pkg-config ffmpeg libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libavresample-dev libavfilter-dev
+
+pip3 install av
