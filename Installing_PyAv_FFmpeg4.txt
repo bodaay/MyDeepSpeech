@@ -1,3 +1,5 @@
+# This is for Ubuntu 18
+
 sudo apt install software-properties-common
 
 sudo apt update
